@@ -44,12 +44,67 @@ Write the detailed procedure here
 
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+
+## Full_adder
+
+        module fulladd_top(a,b,cin,sum,carry);
+        
+        input a,b,cin;
+        
+        output sum,carry;
+        
+        wire w1,w2,w3,w4;       
+        
+        xor(w1,a,b);
+        
+        xor(sum,w1,cin);        
+        
+        and(w2,a,b);
+        
+        and(w3,b,cin);
+        
+        and(w4,cin,a);
+        
+        or(carry,w2,w3,w4);
+        
+        endmodule 
+        
+        ## Full_subtractor
+        
+        module fullsub_top(a,b,Bin,BO,DIFF);
+        
+        input a,b,Bin;
+        
+        output BO,DIFF;
+        
+        assign DIFF = a ^ b ^ Bin;
+        
+          assign BO = (a & b) | ((a ^ b) & Bin);
+        
+        endmodule
+        
+
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
+**Developed by:RAKESH.K.S RegisterNumber:24006757**
 */
 
-**RTL Schematic**
+**FULL ADDER**
+![FULL ADDER TABLE](https://github.com/user-attachments/assets/0947c29e-012a-47a7-9d19-a5cb3639017b)
 
-**Output Timing Waveform**
+**FULL SUBRACTER**
+![FULL SUBRACTER TABLE](https://github.com/user-attachments/assets/091d8b07-fda5-4079-8ddf-6199d7361d30)
+
+**RTL SCHEMATIC**
+![RTL SCHEMATIC](https://github.com/user-attachments/assets/81c928ab-7693-4a57-8525-5add8511ac32)
+
+**FULL ADDER WAVEFORM**
+![FULL ADDER WAVEFORM](https://github.com/user-attachments/assets/d75a3a2f-f668-49e0-91f0-a836e0176e21)
+
+
+**FULL SUBRACTER WAVEFORM**
+![FULL SUBRACTER WAVEFORM](https://github.com/user-attachments/assets/4d257d10-1547-4fe5-8808-ab2ea61969bf)
+
+
 
 **Result:**
 
